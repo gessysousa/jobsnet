@@ -4,9 +4,9 @@ import { Col, Row, Container, Button, Form, FormGroup, Label, Input, FormFeedbac
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import './style.css';
-import logoPNG from "./JobsNET.png"
 
+import './style.css';
+import logoPNG from "./JobsNET.png";
 
 const App = (props) => {
  
@@ -181,22 +181,22 @@ const App = (props) => {
     }
 
    return (
-    <Container className = 'classContainer classFont'>
+    <Container className = 'classContainer classFont' fluid>
       {/*Navbar*/}
         <Navbar className= 'classNavbar' dark>
           
            <NavbarBrand href="/" className="mr-auto">
-           <img src = {logoPNG} style={{width:50, margin: 7}}></img>
-             <Label>JobsNET</Label> 
+           <img src = {logoPNG} style={{width:50, marginLeft: 10,marginRight: 10}}></img>
+             <font className ='classTituloBrand'>JobsNET</font> 
             </NavbarBrand>
           <NavbarToggler onClick={toggleNavbar} className="mr-2" />
-          <Collapse isOpen={!collapsed} navbar>
-            <Nav navbar>
-              <NavItem>
-                <NavLink href="/">Quem Somos</NavLink>
+          <Collapse isOpen={!collapsed} navbar >
+            <Nav navbar className ='classNav' >
+              <NavItem >
+                <NavLink href="/" ><b className ='classNavLink'>Início</b></NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/">Contato</NavLink>
+                <NavLink href="/" ><b className ='classNavLink'>Sobre</b></NavLink>
               </NavItem>
             </Nav>
           </Collapse>
@@ -206,17 +206,24 @@ const App = (props) => {
       {/*Content*/}
 
         <Row className = 'classRow'>
-        <Col xs="3" md="2" sm="0"  ></Col>
+        <Col xs="0" md="2" sm="2"  ></Col>
         
         {/*Coluna central*/}
-        <Col xs="6" md="8" sm="12">
-        
-    
-       <h1 className="text-center"> Banco de Currículos</h1>         
+        <Col xs="12" md="8" sm="8">
+         
 
-        <Label><h5 className="classH">Dados Pessoais</h5></Label> 
+    <Row>
+    <Col xs="12"  md="12" sm="12">
+    <h1 className="text-center"><b> Banco de Currículos </b></h1>         
 
-     
+    </Col>
+    </Row>      
+
+        <Row>
+
+        <Label><h5 className="classH"><b>Dados Pessoais</b></h5></Label> 
+
+        <Col xs="12"  md="12" sm="12">
           <FormGroup>
               <Label for="name">Nome Completo * </Label>
               <Input 
@@ -228,9 +235,10 @@ const App = (props) => {
                 invalid = {nameError}/>
                 <FormFeedback>Preencha o seu nome completo</FormFeedback>
             </FormGroup>
-        
+            </Col>
+      </Row>
       <Row>
-        <Col xs="4"  md="4" sm="12">
+        <Col xs="12"  md="4" sm="4">
           <FormGroup>
               <Label for="birth">Data de Nascimento * </Label>
               <Input 
@@ -248,7 +256,7 @@ const App = (props) => {
                 <FormFeedback>Preencha sua data de Nascimento</FormFeedback>
             </FormGroup>
         </Col>
-        <Col xs="4"   md="4" sm="12">
+        <Col xs="12"   md="4" sm="4">
         <FormGroup>
           <Label for="maritalstatus">Estado Civil</Label>
           <Input type="select" name="select" id="exampleSelect" className = 'classInput'
@@ -265,7 +273,7 @@ const App = (props) => {
           </Input>
           </FormGroup>
         </Col>
-        <Col xs="4"   md="4" sm="12">
+        <Col xs="12"   md="4" sm="4">
         <FormGroup>
           <Label for="gender">Gênero</Label>
           <Input type="select" name="select" id="exampleSelect" className = 'classInput'
@@ -282,7 +290,6 @@ const App = (props) => {
           </Input>
           </FormGroup>
         </Col>
-        <Col xs="3"></Col>
       </Row>
   
       <Row>
@@ -319,12 +326,12 @@ const App = (props) => {
    
       <Row>
         
-        <Col xs="12"><h5 className="classH">Informações de Endereço</h5></Col>
+        <Col xs="12"   md="12" sm="12"><h5 className="classH"><b>Informações de Endereço</b></h5></Col>
        
       </Row>
 
       <Row>
-        <Col xs="12">
+        <Col xs="12"   md="12" sm="12">
           <FormGroup>
           <Label for="cep">CEP * </Label>
             <InputGroup>
@@ -352,7 +359,7 @@ const App = (props) => {
       </Row>
       
       <Row>
-      <Col xs="8"   md="8" sm="12">
+      <Col xs="12"   md="8" sm="8">
         <FormGroup>
           <Label for="address">Logradouro * </Label>
           <Input 
@@ -366,7 +373,7 @@ const App = (props) => {
             <FormFeedback>Preencha o logradouro</FormFeedback>
         </FormGroup>
       </Col>
-      <Col xs="4"   md="4" sm="12">
+      <Col xs="12"   md="4" sm="4">
         <FormGroup>
             <Label for="number">Número * </Label>
             <Input 
@@ -383,7 +390,7 @@ const App = (props) => {
       </Row>
 
       <Row>
-      <Col xs="6"   md="6" sm="12">
+      <Col xs="12"   md="6" sm="6">
         <FormGroup>
           <Label for="neighborhood">Bairro * </Label>
           <Input 
@@ -398,7 +405,7 @@ const App = (props) => {
             <FormFeedback>Preencha o bairro</FormFeedback>
         </FormGroup>
       </Col>
-      <Col xs="6"   md="6" sm="12">
+      <Col xs="12"   md="6" sm="6">
         <FormGroup>
             <Label for="city">Cidade * </Label>
             <Input 
@@ -416,13 +423,13 @@ const App = (props) => {
 
       <Row>
        
-        <Col xs="12"><h5 className="classH">Informações de Contato</h5></Col>
+        <Col xs="12"  md="12" sm="12"><h5 className="classH"><b>Informações de Contato</b></h5></Col>
        
       </Row>
 
       <Row>
 
-        <Col xs="12">
+        <Col xs="12"   md="12" sm="12">
           <FormGroup>
             <Label for="email">Email * </Label>
             <Input type="email" name="email" id="exampleEmail" placeholder="nome@email.com"  className = 'classInput'
@@ -438,7 +445,7 @@ const App = (props) => {
 
       <Row>
 
-      <Col xs="6"   md="6" sm="12">
+      <Col xs="12"   md="6" sm="6">
         <FormGroup>
           <Label for="cellphone">Celular * </Label>
             <Input placeholder="(00)999999999" 
@@ -452,7 +459,7 @@ const App = (props) => {
                 <FormFeedback>Preencha o seu celular (xx)xxxxxxxxx</FormFeedback>
           </FormGroup>
       </Col>
-      <Col xs="6"   md="6" sm="12">
+      <Col xs="12"   md="6" sm="6">
         <FormGroup>
           <Label for="telephone">Telefone </Label>
           <Input placeholder="(00)999999999" 
@@ -469,12 +476,12 @@ const App = (props) => {
 
       <Row>
         
-        <Col xs="12"><h5 className="classH">Informações Profissionais</h5></Col>
+        <Col xs="12"   md="12" sm="12"><h5 className="classH"><b>Informações Profissionais</b></h5></Col>
         
       </Row>
 
       <Row>
-      <Col xs="6"   md="6" sm="12">
+      <Col xs="12"   md="6" sm="6">
       <FormGroup>
           <Label for="profession">Profissão * </Label>
             <Input 
@@ -488,7 +495,7 @@ const App = (props) => {
                 <FormFeedback>Preencha a sua profissão</FormFeedback>
           </FormGroup>
       </Col>
-      <Col xs="6"   md="6" sm="12">
+      <Col xs="12"   md="6" sm="6">
       <FormGroup>
           <Label for="intendposition">Cargo Pretendido </Label>
           <Input
@@ -502,13 +509,14 @@ const App = (props) => {
       </Row>
       
       <Row>
-        <Col xs="12">
+        <Col xs="12"   md="12" sm="12">
         <Label for="intendposition">* Dados obrigatórios</Label>
         </Col>
       </Row>
       <Row>
-       <Col xs="12">
-          <Button 
+       <Col xs="12"   md="12" sm="12" className = 'text-center'>
+         <p></p>
+          <Button           
             className = 'classButtom'
             color="secondary"
             onClick = { () => validate() }>Enviar cadastro</Button>{' '}
@@ -518,14 +526,22 @@ const App = (props) => {
         </Col>
         {/*/Coluna central*/}
 
-        <Col xs="3" md="2" sm="0"></Col>
+        <Col xs="0" md="2" sm="2"></Col>
         </Row>
       {/*/Content*/}
 
       {/*Footer */}
       <footer className = 'classFooter'>
         <div className='text-center'>
-          <span >&copy; 2021 - JobsNET - Desenvolvido por Gessy Sousa</span>
+          <row>
+          <Col xs="12"   md="12" sm="12">
+          <span >&copy; 2021 - JobsNET</span>
+            </Col>
+            <Col xs="12"   md="12" sm="12">
+            <span >Desenvolvido por Gessy Sousa</span>
+            </Col>
+          </row>
+          
         </div>
       </footer>
       {/*Footer */}
